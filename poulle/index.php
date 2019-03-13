@@ -1,7 +1,9 @@
-<?php 
+<?php
 include_once "conf.php";
-//tijdelijk
-	$Role = -1;
+
+$current = new User();
+$obj = $current->status();
+$Role = $obj;
 ?>
 
 
@@ -24,8 +26,12 @@ include_once "conf.php";
   <a href="Content_pages/Admin/dashboard.php" >DashBoard</a>
 	<?php }?>
   <div class="topnav-right">
+		<?php if ($Role == -1){?>
     <a href="Content_pages/register.php">SignUp</a>
     <a href="Content_pages/login.php">SignIn</a>
+	<?php  }else{ ?>
+		<a href="Content_pages/logout.php">Logout</a>
+	<?php } ?>
   </div>
 </div>
 
