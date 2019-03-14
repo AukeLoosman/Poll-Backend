@@ -36,7 +36,7 @@
         <h2 align="center">Search</h2>
         <input id="searchUser" type="text" placeholder="Enter Username" name="searchUser" required>
         <br>
-        <input id="searchBtn" type="submit" name="submit" value="submit"></input>
+        <input id="searchBtn" class="Button_Style" type="submit" name="submit" value="submit"></input>
       </div>
     </form>
   </div>
@@ -61,6 +61,49 @@
         <div class="card-body">
 
         </div>
+    </div>
+  </div>
+
+  <div id="new_team">
+    <div class="card">
+        <h4 class="card-header" align="center" id="THeader">Teams</h4>
+        <button id="Add_Team"  class="Button_Style">Add Team</button>
+        <div class="card-body">
+          <div id="Team_Table" >
+            <table style="width:100%" id="refresh">
+          <tr>
+            <th>Team</th>
+            <th>Strength</th>
+            <th>Defence</th>
+            <th>Agility</th>
+          </tr>
+        </table>
+        </div>
+        </div>
+    </div>
+    <div id="myModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span id="close">&times;</span>
+        <div id="Team_Form">
+      <form id="Tform" class="form_dash">
+        <div class="container">
+          <h2 align="center">Add Team</h2>
+          <input id="TeamName" class="formitem" align="center" type="text" placeholder="Enter TeamName" name="TeamName" required>
+          <br>
+          <input id="TeamStrength"  class="formitem" type="number" placeholder="Enter Strength" name="TeamStrength" required>
+          <br>
+          <input id="TeamDefence" class="formitem" type="number" placeholder="Enter Defence" name="TeamDefence" required>
+          <br>
+          <input id="TeamAgility" class="formitem" type="number" placeholder="Enter Agility" name="TeamAgility" required>
+          <br>
+          <input id="SubmitBtn" class="Button_Style" type="submit" name="submit" value="submit"></input>
+        </div>
+      </form>
+    </div>
+      </div>
+
     </div>
   </div>
 

@@ -15,7 +15,8 @@ $menu;
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-  <script type="text/javascript" charset="utf-8" src="js.js"></script>
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/scripts.js"></script>
 </head>
 
 <body>
@@ -130,6 +131,15 @@ $menu;
                     <span class="menu-collapsed">Edit portfolio</span>
                 </div>
             </a>
+						<li class="list-group-item sidebar-separator-title text-muted d-flex align-items-center menu-collapsed">
+								<small>Teams</small>
+						</li>
+						<a href="new_team" class="bg-dark list-group-item list-group-item-action">
+								<div class="d-flex w-100 justify-content-start align-items-center">
+										<span class="fa fa-question fa-fw mr-3"></span>
+										<span class="menu-collapsed">Create new team</span>
+								</div>
+						</a>
         </ul><!-- List Group END-->
     </div><!-- sidebar-container END -->
 
@@ -155,53 +165,15 @@ $menu;
   <td id="portfolio" contenteditable="true">&nbsp;</td>
   <td><button id="updatedata">update</button></td>
 </tr>
-</script>
+</script type="text/template" id="Team-Temp">
+<tr>
+  <td id="teams">&nbsp;</td>
+  <td id="strengths">&nbsp;</td>
+  <td id="defences">&nbsp;</td>
+	<td id="agilitys">&nbsp;</td>
+</tr>
 <script>
-  $(document).ready(function(){
-    $('a').click(function(){
-      $('#content_item').load("content.php #" + $(this).attr('href'));
-      return false;
-    });
-
-    $(document).on("click","#updatedata",function () {
-
-      $.ajax({
-        type: 'post',
-        url: 'ajaxdoables/ajaxportfolio.php',
-        data: {
-          port: $(this).closest('tr').find("#portfolio").text(),
-          user: $(this).closest('tr').find("#user").text()},
-        success: function(data){
-          alert(data);
-        }
-      });
-      return false;
-      });
-  });
-  $('#search_form').ready(function() {
-    $(document).on("submit","#search_form",function(){
-      $.ajax({
-        type: 'post',
-        url: 'ajaxdoables/ajaxselect.php',
-        data: $('#search_form').serialize(),
-        dataType: 'json',
-        success: function (data) {
-        if (data != null) {
-          var template = $($("#row-template").html());
-          var tr = template.clone();
-					tr.find("#id").text(data.uid);
-          tr.find("#user").text(data.username);
-          tr.find("#portfolio").text(data.portfolio);
-          var rowCount = $('#Table tr').length;
-          $('table tr:last td').remove();
-					tr.appendTo("#Table tbody");
-        }
-        }
-        });
-        return false;
-    });
-});
-  </script>
+</script>
 
 </body>
 </html>

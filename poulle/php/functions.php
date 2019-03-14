@@ -109,5 +109,33 @@ class Admin extends dbconn{
 		}
 	}
 
+	public function addTeam($team,$strength,$defence,$agility)
+	{
+		$this->mysqli->real_escape_string($team);
+		$query = "INSERT INTO teams (Team ,Agility , Defense, Strength) VALUES ('".$team."' ,'".$agility."','".$defence."','".$strength."')";
+		if ($this->mysqli->query($query) === TRUE) {
+			echo "success";
+		}else{
+			echo "failed";
+		}
+	}
+
+	public function refreshTeams()
+	{
+	$Query = "SELECT * FROM teams";
+	$result = $this->mysqli->query($Query);
+
+		if($result->num_rows >= 0){
+			$data = $result->fetch_assoc();
+			$team = new teamsitem();
+			$team->team = $data['Team'];
+			$team->strength = $data['Strength'];
+			$team->agility = $data['Agility'];
+			$team->defense = $data['Defense'];
+			return $team;
+		}else{
+			return "failed";
+		}
+	}
 }
 ?>
