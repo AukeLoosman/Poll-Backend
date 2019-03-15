@@ -1,7 +1,7 @@
 <?php
 include_once "conf.php";
 
-$current = new User();
+$current = new userst();
 $obj = $current->status();
 $Role = $obj;
 ?>

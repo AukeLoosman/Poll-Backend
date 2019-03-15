@@ -3,7 +3,7 @@ include_once "../../../conf.php";
 
 $value = $_POST['port'];
 
-$obj = new Admin();
+$obj = new updatePortofolio();
 $data = $obj->updatePorto($_POST['user'],$_POST['port']);
 
 

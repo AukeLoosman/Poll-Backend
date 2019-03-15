@@ -65,12 +65,13 @@
   </div>
 
   <div id="new_team">
-    <div class="card">
-        <h4 class="card-header" align="center" id="THeader">Teams</h4>
+    <br>
+        <h4 align="center" id="THeader" class="card-header">Teams</h4>
+        <br>
         <button id="Add_Team"  class="Button_Style">Add Team</button>
-        <div class="card-body">
+        <br><br>
           <div id="Team_Table" >
-            <table style="width:100%" id="refresh">
+            <table style="width:100%">
           <tr>
             <th>Team</th>
             <th>Strength</th>
@@ -79,8 +80,6 @@
           </tr>
         </table>
         </div>
-        </div>
-    </div>
     <div id="myModal" class="modal">
 
       <!-- Modal content -->

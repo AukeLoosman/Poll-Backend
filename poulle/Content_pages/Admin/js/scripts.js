@@ -33,7 +33,6 @@ $('#search_form').ready(function() {
         tr.find("#id").text(data.uid);
         tr.find("#user").text(data.username);
         tr.find("#portfolio").text(data.portfolio);
-        var rowCount = $('#Table tr').length;
         $('table tr:last td').remove();
         tr.appendTo("#Table tbody");
       }
@@ -63,15 +62,17 @@ $(document).on("click","#THeader",function(){
   $.ajax({
     type: 'get',
     url: 'ajaxdoables/updateTeams.php',
-    datatype: 'json',
+    dataType: 'json',
     success: function(data){
+      for (var i = 0; i < data.length; i++) {
       var template = $($("#Team-Temp").html());
       var tr = template.clone();
-      tr.find("#teams").text("test");
-      tr.find("#strengths").text("test");
-      tr.find("#defences").text("test");
-      tr.find("#agilitys").text("test");
-      tr.appendTo("#Team_Table tbody");
+      tr.find("#teams").text(data[i].team);
+      tr.find("#strengths").text(data[i].strength);
+      tr.find("#defences").text(data[i].defense);
+      tr.find("#agilitys").text(data[i].agility);
+      tr.appendTo("#Team_Table tbody ");
+    }
     }
   });
   return false;

@@ -5,10 +5,11 @@ include_once "../conf.php";
   $username = $_POST['uname'];
   $password = $_POST['psw'];
 
-  $user = new User();
+  $user = new accdatacheck();
+  $register = new registration();
   $check = $user->accountcheck($username);
   if ($check === "yes") {
-    if ($user->register($email, $username, $password)) {
+    if ($register->register($email, $username, $password)) {
       echo "success";
     }
   }else{

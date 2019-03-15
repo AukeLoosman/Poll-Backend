@@ -3,7 +3,7 @@ include_once "../conf.php";
 //als er op login wordt geclicked doet ie deze shit en verstuurd hij de inlog gegevens naar de login functie
 $Role = -1;
   if(isset($_POST['submit'])){
-    $Current = new User();
+    $Current = new userlogin();
     $username = $_POST['uname'];
     $password = $_POST['psw'];
     if ($Current->login($username, $password))

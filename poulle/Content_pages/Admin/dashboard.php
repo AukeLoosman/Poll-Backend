@@ -1,7 +1,7 @@
 <?php
 include_once "../../conf.php";
 
-$current = new User();
+$current = new userst();
 $obj = $current->status();
 $Role = $obj;
 $menu;
@@ -165,14 +165,14 @@ $menu;
   <td id="portfolio" contenteditable="true">&nbsp;</td>
   <td><button id="updatedata">update</button></td>
 </tr>
-</script type="text/template" id="Team-Temp">
+</script>
+<script type="text/template" id="Team-Temp">
 <tr>
   <td id="teams">&nbsp;</td>
   <td id="strengths">&nbsp;</td>
   <td id="defences">&nbsp;</td>
 	<td id="agilitys">&nbsp;</td>
 </tr>
-<script>
 </script>
 
 </body>
