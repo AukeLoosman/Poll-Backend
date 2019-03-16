@@ -8,7 +8,16 @@ background-size: cover;
 .logintext{
   text-align: center;
 }
-
+[class*="reg_loginform"]{
+  border: 3px solid #f1f1f1;
+  background-color: #fff;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3.5%;
+  width: 50%;
+  border-radius: 25px;
+}
+@media only screen and (min-width: 768px) {
 .reg_loginform {
   border: 3px solid #f1f1f1;
   background-color: #fff;
@@ -18,7 +27,7 @@ background-size: cover;
   width: 25%;
   border-radius: 25px;
 }
-
+}
 input[type=text], input[type=password] {
   width: 100%;
   padding: 12px 20px;

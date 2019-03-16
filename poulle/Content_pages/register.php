@@ -29,7 +29,7 @@
   </div>
 </div><br><br>
 
-<form id="registerform"class="reg_loginform" method="post">
+<form id="registerform" class="reg_loginform" method="post">
   <div class="logintext">
     <h2>SignUp</h2>
   </div>

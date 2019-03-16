@@ -64,6 +64,9 @@ $(document).on("click","#THeader",function(){
     url: 'ajaxdoables/updateTeams.php',
     dataType: 'json',
     success: function(data){
+      var template = $($("#Team-Temp").html());
+      var tr = template.clone();
+      $('table tr td').remove();
       for (var i = 0; i < data.length; i++) {
       var template = $($("#Team-Temp").html());
       var tr = template.clone();
