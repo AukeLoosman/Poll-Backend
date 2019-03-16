@@ -64,6 +64,18 @@
     </div>
   </div>
 
+  <div id="Poulle">
+    <h1 align="center">
+        Poulle
+    </h1>
+    <div class="card">
+        <h4 class="card-header">Dashboard</h4>
+        <div class="card-body">
+
+        </div>
+    </div>
+  </div>
+
   <div id="new_team">
     <br>
         <h4 align="center" id="THeader" class="card-header">Teams</h4>

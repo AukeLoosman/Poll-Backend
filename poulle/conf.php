@@ -15,5 +15,4 @@ include_once "Content_pages/functions/login.php";
 include_once "Content_pages/functions/logout.php";
 include_once "Content_pages/functions/register.php";
 include_once "Content_pages/functions/userstatus.php";
-
 ?>

@@ -6,7 +6,8 @@ $Role = -1;
     $Current = new userlogin();
     $username = $_POST['uname'];
     $password = $_POST['psw'];
-    if ($Current->login($username, $password))
+    $hashed = hash('sha256', $password);
+    if ($Current->login($username, $hashed))
     {
       return header("Location: http://localhost/root/poulle/index.php");
     }

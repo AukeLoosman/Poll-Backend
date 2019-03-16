@@ -4,16 +4,22 @@ include_once "../conf.php";
   $email = $_POST['email'];
   $username = $_POST['uname'];
   $password = $_POST['psw'];
+  $hashed = hash('sha256', $password);
 
   $user = new accdatacheck();
   $register = new registration();
-  $check = $user->accountcheck($username);
+  $check = $user->accountcheckUname($username);
   if ($check === "yes") {
-    if ($register->register($email, $username, $password)) {
-      echo "success";
+    $echeck = $user->accountcheckEmail($email);
+    if ($echeck === "yes") {
+      $register->register($email, $username, $hashed);
+      echo "registered";
+
     }
-  }else{
+    if ($echeck === "no") {
+      echo "emailfailed";
+    }
+  }if ($check === "no"){
     echo "failed";
   }
-
  ?>

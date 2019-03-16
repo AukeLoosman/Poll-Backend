@@ -3,7 +3,6 @@
 //tijdelijk
   $Role = -1;
 
-
 ?>
 <html>
 
@@ -40,15 +39,17 @@
   <div class="container">
      <label for="email"><b>Email</b></label>
     <br>
-    <input type="text" placeholder="Enter Email" name="email" required>
+    <input id="emailstyle" type="text" placeholder="Enter Email" name="email" required>
+    <div style="text-align: center;">
+    <span id="emailspan">This Email is already registered</span>
+  </div>
     <br>
     <label for="uname"><b>Username</b></label>
     <br>
-    <div <?php if (isset($name_error)): ?> class="form_error" <?php endif ?> >
-    <input type="text" placeholder="Enter Username" name="uname" required>
-    <?php if (isset($name_error)): ?>
-	  	<span><?php echo $name_error; ?></span>
-	  <?php endif ?>
+    <input id="usernamestyle" type="text" placeholder="Enter Username" name="uname" required>
+    <div style="text-align: center;">
+    <span id="userspan">Username is taken</span>
+  </div>
     <br>
     <label for="psw"><b>Password</b></label>
     <br>
@@ -65,9 +66,18 @@ $('#registerform').ready(function() {
       url: 'ajaxregister.php',
       data: $('#registerform').serialize(),
       success: function (data) {
+        if (data == "registered"){
+          window.location.href = "login.php";
+        }else{
       if (data == "failed") {
-        alert("Username is already taken");
+        document.getElementById("usernamestyle").style.borderColor = "red";
+        document.getElementById("userspan").style.display = "block";
       }
+      if (data = "emailfailed") {
+        document.getElementById("emailstyle").style.borderColor = "red";
+        document.getElementById("emailspan").style.display = "block";
+      }
+    }
       }
       });
       return false;
