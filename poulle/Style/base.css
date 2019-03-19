@@ -212,3 +212,13 @@ th,tr{
   text-decoration: none;
   cursor: pointer;
 }
+
+.Home{
+  opacity: 75%;
+  background-color: green;
+  padding-top: 58px;
+  width: 75%;
+  height: 25%;
+  margin: auto;
+  border: 1px solid black;
+}

@@ -20,7 +20,7 @@ class userlogin extends dbconn
           $_SESSION['obj_uname'] = $object->uname;
           $_SESSION['obj_role'] = $object->role;
           $_SESSION['obj_log'] = $logout;
-          return true && header("Location: http://localhost/root/poulle/index.php");
+          return true && header("Location: ../index.php");
       }
     }
     return false;
