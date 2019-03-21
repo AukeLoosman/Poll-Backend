@@ -152,13 +152,7 @@
 }
 
 #form{
-  float: left;
-  width: 50%;
-}
-
-#liveform{
-  float: left;
-  width: 50%;
+  width: 100%;
 }
 
 #Team_Form{
@@ -171,6 +165,12 @@
   width: auto;
   size:inherit;
   width: 50%;
+  margin-top: auto;
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+#Live-Table{
+  width: 100%;
   margin-top: auto;
   border: 1px solid black;
   border-collapse: collapse;
