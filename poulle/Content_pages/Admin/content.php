@@ -21,18 +21,17 @@
 <div id="liveform">
   <form id="search_form" class="form_dash">
         <div class="container">
-          <h2 align="center">Search users</h2>
           <input id="livesearchuser" type="text" placeholder="Enter Username" name="searchUser" required>
         </div>
   </form>
 </div>
-<div id="Table">
-  <table style="width:100%">
+<div id="live-table">
+  <br><br>
+  <table id="tablesearch" style="width:100%">
 <tr>
   <th>UID</th>
   <th>Username</th>
   <th>Portfolio</th>
-  <th>submit</th>
 </tr>
 </table>
 </div>
