@@ -19,6 +19,63 @@ $(document).ready(function(){
     return false;
     });
 });
+
+$(document).on("keyup","#livesearchuser",function(){
+  let element = $("#livesearchuser");
+  elementValue = element[0].value;
+  $.ajax({
+    type: 'post',
+    url: 'ajaxdoables/livesearch.php',
+    data: {"test": elementValue},
+    dataType: 'json',
+    success: function(data){
+      console.log(data);
+      if (data != null) {
+        var template = $($("#livesearch").html());
+        var tr = template.clone();
+        $('#Live-Table tr td').remove();
+        for (var i = 0; i < data.length; i++) {
+        var template = $($("#livesearch").html());
+        var tr = template.clone();
+        tr.find("#uid").text(data[i].uid);
+        tr.find("#uname").text(data[i].username);
+        tr.find("#password").text(data[i].password);
+        tr.find("#email").text(data[i].email);
+        tr.find("#portfolio").text(data[i].portfolio);
+        tr.appendTo("#Live-Table tbody");
+      }
+      }
+    }
+  });
+  return false;
+});
+
+$(document).on("click","#FSearch",function(){
+    $.ajax({
+      type: 'get',
+      url: 'ajaxdoables/firstsearch.php',
+      dataType: 'json',
+      success: function(data){
+        if (data != null) {
+          var template = $($("#livesearch").html());
+          var tr = template.clone();
+          $('#Live-Table tr td').remove();
+          for (var i = 0; i < data.length; i++) {
+          var template = $($("#livesearch").html());
+          var tr = template.clone();
+          tr.find("#uid").text(data[i].uid);
+          tr.find("#uname").text(data[i].username);
+          tr.find("#password").text(data[i].password);
+          tr.find("#email").text(data[i].email);
+          tr.find("#portfolio").text(data[i].portfolio);
+          tr.appendTo("#Live-Table tbody");
+        }
+        }
+      }
+    });
+    return false;
+});
+
 $('#search_form').ready(function() {
   $(document).on("submit","#search_form",function(){
     $.ajax({

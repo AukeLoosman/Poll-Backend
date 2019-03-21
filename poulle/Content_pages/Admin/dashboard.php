@@ -168,6 +168,15 @@ $menu;
       </div>
     </div><!-- Main Col END -->
 </div><!-- body-row END -->
+<script type="text/template" id="livesearch">
+<tr>
+	<td id="uid">&nbsp;</td>
+	<td id="uname">&nbsp;</td>
+	<td id="password">&nbsp;</td>
+	<td id="email">&nbsp;</td>
+	<td id="portfolio">&nbsp;</td>
+</tr>
+</script>
 <script type="text/template" id="row-template">
 <tr>
   <td id="id">&nbsp;</td>

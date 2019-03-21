@@ -19,15 +19,15 @@
         Search users
     </h1>
 <div id="liveform">
-  <form id="search_form" class="form_dash">
+  <form id="Live_search_form" class="form_dash">
         <div class="container">
-          <h2 align="center">Search users</h2>
           <input id="livesearchuser" type="text" placeholder="Enter Username" name="searchUser" required>
         </div>
   </form>
+  <br><br>
 </div>
-<div id="Table">
-  <table style="width:100%">
+<div>
+  <table id="Live-Table" style="width:100%">
 <tr>
   <th>UID</th>
   <th>Username</th>
