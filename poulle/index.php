@@ -27,7 +27,7 @@ $Role = $obj;
     <?php if ($Role == 0 || $Role == 1) { ?>
   <a href="Content_pages/Ranking.php" >Ranking</a>
     <?php } if ($Role == 1) { ?>
-  <a href="Content_pages/Admin/dashboard.php" >DashBoard</a>
+  <a href="Content_pages/Admin/dashboard.php" >DashBoard!</a>
 	<?php }?>
   <div class="topnav-right">
 		<?php if ($Role == -1){?>
