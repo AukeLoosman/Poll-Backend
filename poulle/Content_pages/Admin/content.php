@@ -15,16 +15,29 @@
   </div>
 
   <div id="accounts">
-    <h1 align="center">
-        Edit Portfolio!
+    <h1 id="FSearch" align="center">
+        Search users
     </h1>
-    <div class="card">
-        <h4 class="card-header">Dashboard</h4>
-        <div class="card-body">
-
+<div id="liveform">
+  <form id="search_form" class="form_dash">
+        <div class="container">
+          <h2 align="center">Search users</h2>
+          <input id="livesearchuser" type="text" placeholder="Enter Username" name="searchUser" required>
         </div>
-    </div>
-  </div>
+  </form>
+</div>
+<div id="Table">
+  <table style="width:100%">
+<tr>
+  <th>UID</th>
+  <th>Username</th>
+  <th>Password</th>
+  <th>Email</th>
+  <th>Portfolio</th>
+</tr>
+</table>
+</div>
+</div>
 
   <div id="edit_portfolio">
     <h1 align="center">
