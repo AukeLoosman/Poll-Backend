@@ -20,6 +20,16 @@ $(document).ready(function(){
     });
 });
 
+$(document).on("click","#startPoulle",function(){
+  $.ajax({
+    type: 'get',
+    url: 'ajaxdoables/ajaxstartpoulle.php',
+    dataType: 'json',
+    succes: function(data){
+
+    }
+  });
+});
 $(document).on("keyup","#livesearchuser",function(){
   let element = $("#livesearchuser");
   elementValue = element[0].value;

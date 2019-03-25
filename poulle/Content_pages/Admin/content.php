@@ -81,11 +81,11 @@
     <h1 align="center">
         Poulle
     </h1>
-    <div class="card">
-        <h4 class="card-header">Dashboard</h4>
-        <div class="card-body">
-
-        </div>
+    <div >
+        <button id="startPoulle">start Poulle</button>
+    </div>
+    <div>
+        <h3 id="tijdelijk"></h3>
     </div>
   </div>
 
