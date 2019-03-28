@@ -3,19 +3,14 @@
 //ts = teamstrength , td = teamdefence , ta = teamagility ,
 //tac = check of ta groter kleiner of even groot is als de ta van het andere team
 //tc = teamchance op het verslaan van de andere team
-
-$ts1 = 50;
-$td1 = 12;
-$ta1 = 27;
+class chance{
+  function kans($ts1,$td1,$ta1,$ts2,$td2,$ta2){
+    $obj = new kansen();
 $tac1 = false;
-$tc1;
 
-$ts2 = 48;
-$td2 = 27;
-$ta2 = 12;
 $tac2 = false;
 $even = false;
-$tc2;
+
 
 $dif_s1_d2 = ($ts1 - $td2);
 $dif_s2_d1 = ($ts2 - $td1);
@@ -50,21 +45,20 @@ $percentChange = ($a1 / $a2) *100 ;
 
      if($tac1 == true)
      {
-        $tc1 = 50 +  (($percentChange - 100) / 42);
-        $tc2 = 100 - $tc1;
+        $obj->tc1 = 50 +  (($percentChange - 100) / 42);
+        $obj->tc2 = 100 - $obj->tc1;
      }
      if($tac2 == true)
      {
-        $tc2 = 50 +  (($percentChange - 100) / 42);
-        $tc1 = 100 - $tc2;
+        $obj->tc2 = 50 +  (($percentChange - 100) / 42);
+        $obj->tc1 = 100 - $obj->tc2;
      }
      if($even == true)
      {
-        $tc2 = 50;
-        $tc1 = 50;
+        $obj->tc2 = 50;
+        $obj->tc1 = 50;
      }
-echo $tc1;
-echo "   ";
-echo $tc2;
-echo "   ";
+     return $obj;
 }
+}
+?>

@@ -18,18 +18,25 @@ $(document).ready(function(){
     });
     return false;
     });
+
+    $(document).on("click","#startPoulle",function(){
+      $.ajax({
+        type: 'get',
+        url: 'ajaxdoables/ajaxstartpoulle.php',
+        dataType: 'json',
+        succes: function(data){
+          alert(data[0]);
+          if (data != null){
+          document.getElementById("tijdelijk").innerHTML = data[0];
+        }
+        }
+      });
+      return false;
+    });
+
 });
 
-$(document).on("click","#startPoulle",function(){
-  $.ajax({
-    type: 'get',
-    url: 'ajaxdoables/ajaxstartpoulle.php',
-    dataType: 'json',
-    succes: function(data){
 
-    }
-  });
-});
 $(document).on("keyup","#livesearchuser",function(){
   let element = $("#livesearchuser");
   elementValue = element[0].value;
