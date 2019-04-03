@@ -9,6 +9,7 @@ include_once "php/teams.php";
 include_once "php/battle.php";
 include_once "php/kans.php";
 include_once "php/chance_calculation.php";
+include_once "Content_pages/Admin/functions/poulle.php";
 include_once "Content_pages/Admin/functions/startpoulle.php";
 include_once "Content_pages/Admin/functions/addteam.php";
 include_once "Content_pages/Admin/functions/refreshTeam.php";

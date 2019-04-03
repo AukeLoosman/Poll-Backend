@@ -1,4 +1,5 @@
 $(document).ready(function(){
+  var i=0;
   $('a').click(function(){
     $('#content_item').load("content.php #" + $(this).attr('href'));
     return false;
@@ -31,9 +32,27 @@ $(document).ready(function(){
         }
         }
       });
+
+      function myTimer() {
+        i++;
+      $.ajax({
+        type: 'get',
+        url: 'ajaxdoables/ajaxpoulle.php',
+        dataType: 'json',
+        succes: function(data){
+          if (data != null){
+          document.getElementById("tijdelijk").innerHTML = data[0];
+        }
+        }
+      });
+      if (i == 3) {
+      clearInterval(myVar);
+      }
+      }
+
+      var myVar = setInterval(myTimer, 20000);
       return false;
     });
-
 });
 
 
