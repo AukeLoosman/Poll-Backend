@@ -46,11 +46,30 @@ $(document).ready(function(){
         }
       });
       if (i == 3) {
+        i = 0;
       clearInterval(myVar);
+      timer2();
       }
       }
 
-      var myVar = setInterval(myTimer, 20000);
+      function timer2(){
+        i++;
+        $.ajax({
+          type:'get',
+          url: 'ajaxdoables/start.php',
+          dataType: 'json',
+          succes: function(data){
+            if (data != null){
+          }
+          }
+        });
+        if (i == 3) {
+          i = 0;
+          clearInterval(timers);
+        }
+      }
+      var timers = setInterval(timer2, 20000);
+      var myVar = setInterval(myTimer, 6000);
       return false;
     });
 });

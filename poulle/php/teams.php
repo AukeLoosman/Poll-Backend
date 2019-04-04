@@ -5,6 +5,7 @@ class teamsitem {
   public $strength;
   public $agility;
   public $defense;
+  public $gameID;
 }
 
  ?>
