@@ -1,5 +1,7 @@
 $(document).ready(function(){
-  var i=0;
+  var timer11=0;
+  var timer12=0;
+  var timer13=0;
   $('a').click(function(){
     $('#content_item').load("content.php #" + $(this).attr('href'));
     return false;
@@ -26,15 +28,51 @@ $(document).ready(function(){
         url: 'ajaxdoables/ajaxstartpoulle.php',
         dataType: 'json',
         succes: function(data){
-          alert(data[0]);
           if (data != null){
           document.getElementById("tijdelijk").innerHTML = data[0];
         }
         }
       });
+      myTimer();
+      return false;
+    });
 
-      function myTimer() {
-        i++;
+    var timer = setInterval(timer3, 20000);
+    var timers = setInterval(timer2, 20000);
+    var myVar = setInterval(myTimer, 20000);
+
+    function myTimer() {
+      timer11++;
+    $.ajax({
+      type: 'get',
+      url: 'ajaxdoables/ajaxpoulle.php',
+      dataType: 'json',
+      succes: function(data){
+        if (data != null){
+        document.getElementById("tijdelijk").innerHTML = data[0];
+      }
+      }
+    });
+    if (timer11 == 3) {
+      timer11 = 0;
+    clearInterval(myVar);
+    timer2();
+    }
+    }
+
+    function timer2(){
+      if (timer12 == 0) {
+        $.ajax({
+          type:'get',
+          url: 'ajaxdoables/start.php',
+          dataType: 'json',
+          succes: function(data){
+            if (data != null){
+          }
+          }
+        });
+      }
+      timer12++;
       $.ajax({
         type: 'get',
         url: 'ajaxdoables/ajaxpoulle.php',
@@ -45,33 +83,41 @@ $(document).ready(function(){
         }
         }
       });
-      if (i == 3) {
-        i = 0;
-      clearInterval(myVar);
-      timer2();
+      if (timer12 == 3) {
+        timer12 = 0;
+        clearInterval(timers);
+        timer3();
       }
-      }
+    }
 
-      function timer2(){
-        i++;
+    function timer3(){
+      if (timer13 == 0) {
         $.ajax({
           type:'get',
-          url: 'ajaxdoables/start.php',
+          url: 'ajaxdoables/start2.php',
           dataType: 'json',
           succes: function(data){
             if (data != null){
           }
           }
         });
-        if (i == 3) {
-          i = 0;
-          clearInterval(timers);
-        }
       }
-      var timers = setInterval(timer2, 20000);
-      var myVar = setInterval(myTimer, 6000);
-      return false;
-    });
+      timer13++;
+      $.ajax({
+        type: 'get',
+        url: 'ajaxdoables/ajaxpoulle.php',
+        dataType: 'json',
+        succes: function(data){
+          if (data != null){
+          document.getElementById("tijdelijk").innerHTML = data[0];
+        }
+        }
+      });
+      if (timer13 == 3) {
+        timer13 = 0;
+        clearInterval(timer);
+      }
+    }
 });
 
 

@@ -23,7 +23,7 @@ class poulles extends dbconn
         $results = $this->mysqli->query($querygame);
       }
       }
-    return $score1;
+    return;
   }
 }
 

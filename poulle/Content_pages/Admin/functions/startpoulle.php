@@ -20,7 +20,8 @@ public function start(){
   }
   $i = 0;
   $a = $array;
-  $rowSQL = $this->mysqli->query("SELECT MAX( gameID ) AS max FROM `huidig`");
+  //selecteer hoogste gameid uit hostory om een nieuwe poulle te starten met een neiuwe id
+  $rowSQL = $this->mysqli->query("SELECT MAX( gameID ) AS max FROM `history`");
   $row = $rowSQL->fetch_assoc();
   $game = $row['max'];
   $game++;
@@ -30,6 +31,7 @@ public function start(){
     $random_keys=array_rand($a,2);
     $team1 = new teamsitem();
     $team2 = new teamsitem();
+    //hier wordt een random team geselecteerd uit een array die gevuld is met alle mogelijk teams
     $team1 = $a[$random_keys[0]];
     $team2 = $a[$random_keys[1]];
     $bereken = $kans->kans($team1->strength,$team1->defense,$team1->agility,$team2->strength,$team2->defense,$team2->agility);
@@ -53,6 +55,7 @@ public function start(){
     } else {
       return "failed";
     }
+    //hier worden de 2 geselecteerde teams uit de teams array gehaald zodat ze niet 2x kunnen voorkomen
     unset($a[$random_keys[0]]);
     unset($a[$random_keys[1]]);
   }
