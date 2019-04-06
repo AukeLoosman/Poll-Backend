@@ -36,10 +36,10 @@ $(document).ready(function(){
       myTimer();
       return false;
     });
-
-    var timer = setInterval(timer3, 20000);
-    var timers = setInterval(timer2, 20000);
-    var myVar = setInterval(myTimer, 20000);
+    //
+    // var timer = setInterval(timer3, 20000);
+    // var timers = setInterval(timer2, 20000);
+    var myVar = setInterval(myTimer, 6000);
 
     function myTimer() {
       timer11++;
@@ -54,70 +54,91 @@ $(document).ready(function(){
       }
     });
     if (timer11 == 3) {
+      $.ajax({
+        type:'get',
+        url: 'ajaxdoables/start.php',
+        dataType: 'json',
+        succes: function(data){
+          if (data != null){
+        }
+        }
+      });
+    }
+    if (timer11 == 6) {
+      $.ajax({
+        type:'get',
+        url: 'ajaxdoables/start2.php',
+        dataType: 'json',
+        succes: function(data){
+          if (data != null){
+        }
+        }
+      });
+    }
+    if (timer11 == 9) {
       timer11 = 0;
-    clearInterval(myVar);
-    timer2();
+      clearInterval(myVar);
     }
     }
 
-    function timer2(){
-      if (timer12 == 0) {
-        $.ajax({
-          type:'get',
-          url: 'ajaxdoables/start.php',
-          dataType: 'json',
-          succes: function(data){
-            if (data != null){
-          }
-          }
-        });
-      }
-      timer12++;
-      $.ajax({
-        type: 'get',
-        url: 'ajaxdoables/ajaxpoulle.php',
-        dataType: 'json',
-        succes: function(data){
-          if (data != null){
-          document.getElementById("tijdelijk").innerHTML = data[0];
-        }
-        }
-      });
-      if (timer12 == 3) {
-        timer12 = 0;
-        clearInterval(timers);
-        timer3();
-      }
-    }
+    // function timer2(){
+    //   if (timer12 == 0) {
+    //     $.ajax({
+    //       type:'get',
+    //       url: 'ajaxdoables/start.php',
+    //       dataType: 'json',
+    //       succes: function(data){
+    //         if (data != null){
+    //       }
+    //       }
+    //     });
+    //   }
+    //   timer12++;
+    //   $.ajax({
+    //     type: 'get',
+    //     url: 'ajaxdoables/ajaxpoulle.php',
+    //     dataType: 'json',
+    //     succes: function(data){
+    //       if (data != null){
+    //       document.getElementById("tijdelijk").innerHTML = data[0];
+    //     }
+    //     }
+    //   });
+    //   if (timer12 == 3) {
+    //     timer12 = 0;
+    //     clearInterval(timers);
+    //     timer3();
+    //   }
+    // }
 
-    function timer3(){
-      if (timer13 == 0) {
-        $.ajax({
-          type:'get',
-          url: 'ajaxdoables/start2.php',
-          dataType: 'json',
-          succes: function(data){
-            if (data != null){
-          }
-          }
-        });
-      }
-      timer13++;
-      $.ajax({
-        type: 'get',
-        url: 'ajaxdoables/ajaxpoulle.php',
-        dataType: 'json',
-        succes: function(data){
-          if (data != null){
-          document.getElementById("tijdelijk").innerHTML = data[0];
-        }
-        }
-      });
-      if (timer13 == 3) {
-        timer13 = 0;
-        clearInterval(timer);
-      }
-    }
+    // function timer3(){
+    //   if (timer13 == 0) {
+    //     $.ajax({
+    //       type:'get',
+    //       url: 'ajaxdoables/start2.php',
+    //       dataType: 'json',
+    //       succes: function(data){
+    //         if (data != null){
+    //       }
+    //       }
+    //     });
+    //   }
+    //   timer13++;
+    //   $.ajax({
+    //     type: 'get',
+    //     url: 'ajaxdoables/ajaxpoulle.php',
+    //     dataType: 'json',
+    //     succes: function(data){
+    //       if (data != null){
+    //       document.getElementById("tijdelijk").innerHTML = data[0];
+    //     }
+    //     }
+    //   });
+    //   if (timer13 == 3) {
+    //     timer13 = 0;
+    //     clearInterval(timer);
+    //   }
+    // }
 });
 
 
