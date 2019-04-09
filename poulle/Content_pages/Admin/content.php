@@ -82,7 +82,8 @@
         Poulle
     </h1>
     <div >
-        <button id="startPoulle">start Poulle</button>
+        <button id="newPoulle">new Poulle</button>
+        <button id="startpoulle">start Poulle</button>
     </div>
     <div>
         <h3 id="tijdelijk"></h3>
