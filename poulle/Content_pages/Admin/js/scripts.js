@@ -20,7 +20,6 @@ $(document).ready(function(){
     });
 });
 
-<<<<<<< HEAD
 });
 
 $(document).on("click","#startPoulle",function(){
@@ -28,6 +27,7 @@ $(document).on("click","#startPoulle",function(){
 });
 
 var timer11=0;
+
 function myTimer() {
 timer11++;
 $.ajax({
@@ -72,6 +72,7 @@ timer11 = 0;
 clearInterval(myVar);
 }
 }
+
 var myVar = setInterval(myTimer, 6000);
 
     $(document).on("click","#newPoulle",function(){

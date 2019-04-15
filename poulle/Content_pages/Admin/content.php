@@ -85,9 +85,6 @@
         <button id="newPoulle">new Poulle</button>
         <button id="startpoulle">start Poulle</button>
     </div>
-    <div>
-        <h3 id="tijdelijk"></h3>
-    </div>
   </div>
 
   <div id="new_team">
