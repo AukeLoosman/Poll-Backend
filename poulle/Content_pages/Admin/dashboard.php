@@ -177,7 +177,7 @@ $menu;
         </div>
       </div>
     </div><!-- Main Col END -->
-</div><!-- body-row END -->
+</div><!-- body-row END d -->
 <script type="text/template" id="livesearch">
 <tr>
 	<td id="uid">&nbsp;</td>
