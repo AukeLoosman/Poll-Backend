@@ -87,7 +87,6 @@ var myVar = setInterval(myTimer, 6000);
       });
       return false;
     });
-=======
 
 
 // initieren van de timer var
