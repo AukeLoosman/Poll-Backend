@@ -16,17 +16,18 @@ $menu;
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
 	<script type="text/javascript" charset="utf-8" src="js/scripts.js"></script>
 </head>
 
 <body>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
 <!-- Bootstrap NavBar -->
-<nav class="navbar navbar-expand-md navbar-dark bg-primary" style="background-image: linear-gradient(to right, #9a35ff, #f461ba, #fc4444 , #ff9616);">
+<nav class="navbar navbar-expand-md navbar-dark bg-primary" style="
+    background-image: linear-gradient(to right, #9a35ff, #f461ba, #fc4444 , #ff9616);
+" >
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -42,49 +43,23 @@ $menu;
         <a class="nav-link" href="Content_pages/Ranking.php">Ranking <span class="sr-only">(current)</span></a>
       </li>
 
-					 <div class="dropdown">
-		   <button class="btn btn-primary-outline dropdown-toggle text-light" id="dropdownMenuButton" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		     Dropdown menu
-		   </button>
-		   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-		     <strong>Users</strong>
-		     <a class="dropdown-item" href="accounts">Accounts</a>
-				 <div class="dropdown-divider"></div>
-				 <strong>Poulle</strong>
-		     <a class="dropdown-item" href="Poulle">Current Poulle / start</a>
-				 <a class="dropdown-item" href="#">History</a>
-				 <a class="dropdown-item" href="#">Edit current</a>
-				 <a class="dropdown-item" href="current_bets">Current bets</a>
-				 <div class="dropdown-divider"></div>
-				 <strong>Portfolio</strong>
-				 <a class="dropdown-item" href="edit_portfolio">Edit portfolio</a>
-				 <div class="dropdown-divider"></div>
-				 <strong>Teams</strong>
-				 <a class="dropdown-item" href="new_team">Create new team</a>
-		   </div>
-		 </div>
 
-					 <div class="dropdown" style="float: right;">
-			 <button class="btn btn-primary-outline dropdown-toggle text-light" id="dropdownMenuButton" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="float: right;">
-				 Dropdown menu
-			 </button>
-			 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-				 <strong>Users</strong>
-				 <a class="dropdown-item" href="accounts">Accounts</a>
-				 <div class="dropdown-divider"></div>
-				 <strong>Poulle</strong>
-				 <a class="dropdown-item" href="Poulle">Current Poulle / start</a>
-				 <a class="dropdown-item" href="#">History</a>
-				 <a class="dropdown-item" href="#">Edit current</a>
-				 <a class="dropdown-item" href="current_bets">Current bets</a>
-				 <div class="dropdown-divider"></div>
-				 <strong>Portfolio</strong>
-				 <a class="dropdown-item" href="edit_portfolio">Edit portfolio</a>
-				 <div class="dropdown-divider"></div>
-				 <strong>Teams</strong>
-				 <a class="dropdown-item" href="new_team">Create new team</a>
-			 </div>
-			</div>
+
+
+      <!-- This menu is hidden in bigger devices with d-sm-none.
+           The sidebar isn't proper for smaller screens imo, so this dropdown menu can keep all the useful sidebar itens exclusively for smaller screens  -->
+      <li class="nav-item dropdown d-sm-block d-md-none">
+        <a class="nav-link dropdown-toggle" href="#" id="smallerscreenmenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Menu
+        </a>
+        <div class="dropdown-menu" aria-labelledby="smallerscreenmenu">
+            <a class="dropdown-item" href="#">Users</a>
+            <a class="dropdown-item" href="#">Profile</a>
+            <a class="dropdown-item" href="#">Tasks</a>
+            <a class="dropdown-item" href="#">Etc ...</a>
+        </div>
+      </li><!-- Smaller devices menu END -->
+
     </ul>
   </div>
 </nav><!-- NavBar END -->
@@ -107,6 +82,24 @@ $menu;
                     <span class="fa fa-dashboard fa-fw mr-3"></span>
                     <span class="menu-collapsed">Accounts</span>
                     <!--<span class="submenu-icon ml-auto"></span>DROPDOWN-->
+                </div>
+            </a>
+            <!-- Submenu content
+            <div id='submenu1' class="collapse sidebar-submenu">
+                <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
+                    <span class="menu-collapsed">Charts</span>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
+                    <span class="menu-collapsed">Reports</span>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
+                    <span class="menu-collapsed">Tables</span>
+                </a>
+            </div>-->
+            <a href="#submenu2" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-start align-items-center">
+                    <span class="fa fa-user fa-fw mr-3"></span>
+                    <span class="menu-collapsed">Edit</span>
                 </div>
             </a>
 

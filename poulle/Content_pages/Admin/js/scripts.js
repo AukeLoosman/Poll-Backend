@@ -1,7 +1,4 @@
 $(document).ready(function(){
-  var timer11=0;
-  var timer12=0;
-  var timer13=0;
   $('a').click(function(){
     $('#content_item').load("content.php #" + $(this).attr('href'));
     return false;
@@ -21,8 +18,85 @@ $(document).ready(function(){
     });
     return false;
     });
+});
 
-    $(document).on("click","#startPoulle",function(){
+
+
+// initieren van de timer var
+var timer11=0;
+var myvar;
+// function myTimer() => null
+// Elke 6 seconden in de volgende fase
+function myTimer() {
+
+
+  // per "tick" +1 op de timer
+  timer11++;
+
+  // testen van timer variable
+  console.log(timer11);
+
+
+  // bij elke tick voer deze request uit
+  $.ajax({
+    type: 'get',
+    url: 'ajaxdoables/ajaxpoulle.php',
+    dataType: 'json',
+    succes: function(data){
+      if (data != null){
+      document.getElementById("tijdelijk").innerHTML = data[0];
+      }
+    }
+  });
+
+  // dit is ronde 2, wedstrijden eindigen per 3 dus altijd een winnaar
+  if (timer11 == 3) {
+    $.ajax({
+      type:'get',
+      url: 'ajaxdoables/start.php',
+      dataType: 'json',
+      succes: function(data){
+        if (data != null){
+        }
+      }
+    });
+  }
+
+  // dit is ronde 3, de winnaars van ronde 2 same as 2
+  if (timer11 == 6) {
+    $.ajax({
+      type:'get',
+      url: 'ajaxdoables/start2.php',
+      dataType: 'json',
+      succes: function(data){
+        if (data != null){
+        }
+      }
+    });
+  }
+  // dit is ronde 4, dit is de uitkomst van de finale
+  if (timer11 == 9) {
+
+
+    // resetten van de timer variabele
+    timer11 = 0;
+
+    // Interval stop zetten
+    clearInterval(myvar);
+  }
+}
+
+
+
+$(document).on("click","#startpoulle",function(){
+  var myvar = setInterval(myTimer, 1000);
+});
+
+
+
+
+
+    $(document).on("click","#newPoulle",function(){
       $.ajax({
         type: 'get',
         url: 'ajaxdoables/ajaxstartpoulle.php',
@@ -33,114 +107,8 @@ $(document).ready(function(){
         }
         }
       });
-      myTimer();
       return false;
     });
-    //
-    // var timer = setInterval(timer3, 20000);
-    // var timers = setInterval(timer2, 20000);
-    var myVar = setInterval(myTimer, 6000);
-
-    function myTimer() {
-      timer11++;
-    $.ajax({
-      type: 'get',
-      url: 'ajaxdoables/ajaxpoulle.php',
-      dataType: 'json',
-      succes: function(data){
-        if (data != null){
-        document.getElementById("tijdelijk").innerHTML = data[0];
-      }
-      }
-    });
-    if (timer11 == 3) {
-      $.ajax({
-        type:'get',
-        url: 'ajaxdoables/start.php',
-        dataType: 'json',
-        succes: function(data){
-          if (data != null){
-        }
-        }
-      });
-    }
-    if (timer11 == 6) {
-      $.ajax({
-        type:'get',
-        url: 'ajaxdoables/start2.php',
-        dataType: 'json',
-        succes: function(data){
-          if (data != null){
-        }
-        }
-      });
-    }
-    if (timer11 == 9) {
-      timer11 = 0;
-      clearInterval(myVar);
-    }
-    }
-
-    // function timer2(){
-    //   if (timer12 == 0) {
-    //     $.ajax({
-    //       type:'get',
-    //       url: 'ajaxdoables/start.php',
-    //       dataType: 'json',
-    //       succes: function(data){
-    //         if (data != null){
-    //       }
-    //       }
-    //     });
-    //   }
-    //   timer12++;
-    //   $.ajax({
-    //     type: 'get',
-    //     url: 'ajaxdoables/ajaxpoulle.php',
-    //     dataType: 'json',
-    //     succes: function(data){
-    //       if (data != null){
-    //       document.getElementById("tijdelijk").innerHTML = data[0];
-    //     }
-    //     }
-    //   });
-    //   if (timer12 == 3) {
-    //     timer12 = 0;
-    //     clearInterval(timers);
-    //     timer3();
-    //   }
-    // }
-
-    // function timer3(){
-    //   if (timer13 == 0) {
-    //     $.ajax({
-    //       type:'get',
-    //       url: 'ajaxdoables/start2.php',
-    //       dataType: 'json',
-    //       succes: function(data){
-    //         if (data != null){
-    //       }
-    //       }
-    //     });
-    //   }
-    //   timer13++;
-    //   $.ajax({
-    //     type: 'get',
-    //     url: 'ajaxdoables/ajaxpoulle.php',
-    //     dataType: 'json',
-    //     succes: function(data){
-    //       if (data != null){
-    //       document.getElementById("tijdelijk").innerHTML = data[0];
-    //     }
-    //     }
-    //   });
-    //   if (timer13 == 3) {
-    //     timer13 = 0;
-    //     clearInterval(timer);
-    //   }
-    // }
-});
-
 
 $(document).on("keyup","#livesearchuser",function(){
   let element = $("#livesearchuser");

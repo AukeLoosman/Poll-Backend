@@ -3,7 +3,7 @@ include_once "../conf.php";
 
 	$logout = new logoutc();
   $logout->logout();
-  header("Location: ../index.php");
+  header("Location: http://localhost/root/poulle/index.php");
 
  ?>
 

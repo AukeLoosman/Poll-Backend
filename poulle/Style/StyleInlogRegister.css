@@ -1,6 +1,7 @@
 body {
 font-family: Arial, Helvetica, sans-serif;
-background-image: linear-gradient(to right, #f461ba, #fc4444 , #ff9616);
+background-image: url(../images/achtergrond1.PNG);
+background-repeat: no-repeat;
 background-size: cover;
 }
 

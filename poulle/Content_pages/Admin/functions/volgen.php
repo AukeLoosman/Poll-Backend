@@ -9,8 +9,15 @@ public function start()
   $agi;
   $def;
   //selecteer hoogste gameid from history
-  $rowSQL = $this->mysqli->query("SELECT MAX( gameID ) AS max FROM `history`");
+  $rowSQL = $this->mysqli->query("SELECT MAX( gameID ) AS max FROM `huidig`");
+  $rowSQL1 = $this->mysqli->query("SELECT MAX( gameID ) AS max FROM `history`");
   $row = $rowSQL->fetch_assoc();
+  $row1 = $rowSQL1->fetch_assoc();
+  if ($row['max'] > 0 ) {
+    $game = $row1['max'];
+  }else{
+    $game = $row['max'];
+  }
   $game = $row['max'];
   //verplaats poulle van huidig naar history
   $Update = "INSERT INTO history SELECT * FROM huidig WHERE gameID = '".$game."'";
