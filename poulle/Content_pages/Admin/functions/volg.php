@@ -9,7 +9,6 @@ public function start()
   $str;
   $agi;
   $def;
-<<<<<<< HEAD
   //selecteer hoogste gameid from history enof huidig zelf als er 1 bestaat
   $rowSQL = $this->mysqli->query("SELECT MAX( gameID ) AS max FROM `huidig`");
   $rowSQL1 = $this->mysqli->query("SELECT MAX( gameID ) AS max FROM `history`");
@@ -26,14 +25,14 @@ public function start()
   //verwijder uit huidig
   $Del = "DELETE FROM huidig WHERE gameID = '".$game."'";
   $Query = "SELECT * FROM huidig WHERE gameID = '".$game."'";
-=======
+
    //verplaats poulle van huidig naar history
    $Update = "INSERT INTO history SELECT * FROM huidig ";
    //verwijder uit huidig
    $Del = "DELETE FROM huidig";
 
   $Query = "SELECT * FROM huidig";
->>>>>>> sdaeswd
+
   $result = $this->mysqli->query($Query);
   $array = array();
   $battlearray = array();
