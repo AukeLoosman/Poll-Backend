@@ -53,7 +53,7 @@
       </div>
     </form>
   </div>
-  <div id="Table">
+  <div id="Table"  style="width:100%">
     <table style="width:100%">
   <tr>
     <th>UID</th>
@@ -82,7 +82,7 @@
         Poulle
     </h1>
     <div >
-        <button id="startPoulle">start Poulle</button>
+        <button id="startPoulle" align="center">start Poulle</button>
     </div>
     <div>
         <h3 id="tijdelijk"></h3>
@@ -91,12 +91,12 @@
 
   <div id="new_team">
     <br>
-        <h4 align="center" id="THeader" class="card-header">Teams</h4>
+        <h4 align="center" id="THeader" class="card-header">Klik hier voor alle teams</h4>
         <br>
         <button id="Add_Team"  class="Button_Style">Add Team</button>
-        <br><br>
-          <div id="Team_Table" >
-            <table style="width:100%">
+        <br><br><br>
+          <div id="Team_Table" style="width:100%">
+            <table  style="width:100%">
           <tr>
             <th>Team</th>
             <th>Strength</th>
@@ -130,6 +130,8 @@
 
     </div>
   </div>
+
+
 
 </body>
 </html>
