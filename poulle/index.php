@@ -40,7 +40,7 @@ $Role = $obj;
 		        <a class="nav-link" href="index.php">Home<span class="sr-only">(current)</span></a>
 		      </li>
 					<?php if ($Role == 0 || $Role == 1) { ?>
-					<li class="nav-item active">
+					<li class="nav-item">
 		        <a class="nav-link" href="Content_pages/Ranking.php">Ranking<span class="sr-only">(current)</span></a>
 		      </li>
 					<?php } if ($Role == 1) { ?>
