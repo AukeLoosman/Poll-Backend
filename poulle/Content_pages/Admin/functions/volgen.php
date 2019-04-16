@@ -8,22 +8,11 @@ public function start()
   $str;
   $agi;
   $def;
-  //selecteer hoogste gameid from history
-  $rowSQL = $this->mysqli->query("SELECT MAX( gameID ) AS max FROM `huidig`");
-  $rowSQL1 = $this->mysqli->query("SELECT MAX( gameID ) AS max FROM `history`");
-  $row = $rowSQL->fetch_assoc();
-  $row1 = $rowSQL1->fetch_assoc();
-  if ($row['max'] > 0 ) {
-    $game = $row1['max'];
-  }else{
-    $game = $row['max'];
-  }
-  $game = $row['max'];
   //verplaats poulle van huidig naar history
-  $Update = "INSERT INTO history SELECT * FROM huidig WHERE gameID = '".$game."'";
+  $Update = "INSERT INTO history SELECT * FROM huidig ORDER BY gameID ASC";
   //verwijder uit huidig
-  $Del = "DELETE FROM huidig WHERE gameID = '".$game."'";
-  $Query = "SELECT * FROM huidig WHERE gameID = '".$game."'";
+  $Del = "DELETE FROM huidig";
+  $Query = "SELECT * FROM huidig ORDER BY gameID ASC";
   $result = $this->mysqli->query($Query);
   $array = array();
   $battlearray = array();
@@ -49,6 +38,7 @@ public function start()
     $team->strength = $str;
     $team->agility = $agi;
     $team->defense = $def;
+    $team->gamepie = $data["gameID"];
     $array[$i] = $team;
   }
   if ($this->mysqli->query($Update) === TRUE) {
@@ -60,14 +50,17 @@ public function start()
     return "failed at delete";
   }
 }
-if (sizeof($array) < 3 )
-{
+if (sizeof($array) > 0 ) {
+  $id = 0;
+  while ($id < sizeof($array)){
   $kans = new chance();
   // selecteren en orderen van de 4 teams die gewonnen hadden
   $team1 = new teamsitem();
   $team2 = new teamsitem();
-  $team1 = $array['1'];
-  $team2 = $array['2'];
+  $id++;
+  $team1 = $array[$id];
+  $id++;
+  $team2 = $array[$id];
   //kans berekening
   $bereken = $kans->kans($team1->strength,$team1->defense,$team1->agility,$team2->strength,$team2->defense,$team2->agility);
   //team 1 tegen 2
@@ -82,17 +75,22 @@ if (sizeof($array) < 3 )
   $battle->agility2 = $team2->agility;
   $battle->defense2 = $team2->defense;
   $battle->chance2 = $bereken->tc2;
+  $battle->gameID = $team1->gamepie;
+
   $battlearray[] = $battle;
   //insert in database
-  $queryins = "INSERT INTO huidig (gameID ,team1 , str1, agi1,def1,chance1,score1,team2,str2,agi2,def2,chance2,score2)
-   VALUES ($game ,'".$battle->team1."','".$battle->strength1 ."','".$battle->agility1."','".$battle->defense1 ."','".$battle->chance1."'
+  $queryins = "INSERT INTO huidig (gameID ,team1 , str1, agi1,def1,chance1,score1,team2,str2,agi2,def2,chance2,score2,round)
+   VALUES ($battle->gameID ,'".$battle->team1."','".$battle->strength1 ."','".$battle->agility1."','".$battle->defense1 ."','".$battle->chance1."'
      ,0,'".$battle->team2."','".$battle->strength2 ."','".$battle->agility2."','".$battle->defense2 ."','".$battle->chance2."'
-       ,0)";
+       ,0,3)";
   if ($this->mysqli->query($queryins) === TRUE) {
   } else {
-    return "failed at finals";
+    return "failed at insert battle";
   }
-
+}
+}else
+{
+  return "failed";
 }
 return $battlearray;
 }

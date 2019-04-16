@@ -21,55 +21,60 @@ $(document).ready(function(){
 
 });
 var myVar;
+
 $(document).on("click","#startPoulle",function(){
-  var myVar = setInterval(myTimer, 6000);
+  var myVar = setInterval(myTimer, 2000);
+
+  function myTimer() {
+  timer11++;
+  $.ajax({
+  type: 'get',
+  url: 'ajaxdoables/ajaxpoulle.php',
+  dataType: 'json',
+  succes: function(data){
+    if (data != null){
+    document.getElementById("tijdelijk").innerHTML = data[0];
+  }
+  }
+  });
+  if (timer11 == 3) {
+  $.ajax({
+    type:'get',
+    url: 'ajaxdoables/start.php',
+    dataType: 'json',
+    succes: function(data){
+      if (data != null){
+    }
+    }
+  });
+  }
+  if (timer11 == 6) {
+  $.ajax({
+    type:'get',
+    url: 'ajaxdoables/start2.php',
+    dataType: 'json',
+    succes: function(data){
+      if (data != null){
+    }
+    }
+  });
+  }
+  if (timer11 == 9) {
+  $.ajax({
+    type:'get',
+    url: 'ajaxdoables/finale.php',
+    dataType: 'json',
+    succes: function(data){
+    }
+  });
+  timer11 = 0;
+  clearInterval(myVar);
+  }
+  }
 });
 
 var timer11=0;
-function myTimer() {
-timer11++;
-$.ajax({
-type: 'get',
-url: 'ajaxdoables/ajaxpoulle.php',
-dataType: 'json',
-succes: function(data){
-  if (data != null){
-  document.getElementById("tijdelijk").innerHTML = data[0];
-}
-}
-});
-if (timer11 == 3) {
-$.ajax({
-  type:'get',
-  url: 'ajaxdoables/start.php',
-  dataType: 'json',
-  succes: function(data){
-    if (data != null){
-  }
-  }
-});
-}
-if (timer11 == 6) {
-$.ajax({
-  type:'get',
-  url: 'ajaxdoables/start2.php',
-  dataType: 'json',
-  succes: function(data){
-    if (data != null){
-  }
-  }
-});
-}
-if (timer11 == 9) {
-$.ajax({
-  url: 'ájaxdoables/finale.php',
-  succes: function(data){
-  }
-});
-timer11 = 0;
-clearInterval(myVar);
-}
-}
+
 
     $(document).on("click","#newPoulle",function(){
       $.ajax({

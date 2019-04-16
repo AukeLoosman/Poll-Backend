@@ -14,5 +14,6 @@ class battle{
   public $chance2;
   public $score2;
   public $gameID;
+  public $ronde;
 }
  ?>

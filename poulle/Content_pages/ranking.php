@@ -11,15 +11,16 @@ $Role = $obj;
 	<title>Ranking</title>
      <link rel="stylesheet" type="text/css" href="../Style/base.css" />
 		  <link rel="stylesheet" type="text/css" href="../Style/home.css" />
-		 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-	   <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-	 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-	 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-	 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ 	   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+ 	   <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+ 	 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+ 	 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+ 	 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
      <link rel="stylesheet" href="../css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
      <script src="../js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-		 <script type="text/javascript" charset="utf-8" src="../js/scripie.js"></script>
+  	<script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+		 <script type="text/javascript" charset="utf-8" src="js/scripie.js"></script>
 	</head>
 <body>
 
@@ -58,10 +59,27 @@ $Role = $obj;
 			</div>
 		</nav>
 
-		<button id="open" style="width:5%;">t</button>
+		<script type="text/template" id="RankingBattle">
+		<tr>
+			<td id="battle"><button id="thisPo"  ="&nbsp;">lessgooooooo;</button></td>
+			<td id="gameID">&nbsp;</td>
+		</tr>
+		</script>
 
 <!-- Start Template Poulle-->
-
+			<div class="container" style="background-color: #EDEDED;">
+				<button id="FSearch2" align="center">
+					 Search games
+				</button>
+				<div id="poullesTable" >
+					<table style="width:100%;" id="battless">
+				<tr>
+					<th>battle</th>
+					<th style="width:15%;">gameID</th>
+				</tr>
+			</table>
+			</div>
+			</div>
 <br><br><br><br><br><br><br>
 			<div class="container" style="background-color: #EDEDED;">
 
@@ -201,21 +219,6 @@ $Role = $obj;
 					<hr>
 			</div>
 		</div>
-		</div>
-
-		</div>
-
-		<div class="container" style="background-color: #EDEDED;">
-
-		<h1 class="textcenter"><b>Winnaar!!</b></h1>
-
-		<div style="width:49.5%; margin: auto;" >
-		<div class="card">
-			<div class="containercard">
-				<h4 class="team" id="Winnaars"><b>&nbsp;</b></h4>
-					<hr>
-			</div>
-		</div><br>
 		</div>
 
 		</div>

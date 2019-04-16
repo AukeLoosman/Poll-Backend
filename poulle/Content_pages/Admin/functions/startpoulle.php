@@ -53,10 +53,10 @@ public function start(){
     $battle->defense2 = $team2->defense;
     $battle->chance2 = $bereken->tc2;
     $battlearray[] = $battle;
-    $queryins = "INSERT INTO huidig (gameID ,team1 , str1, agi1,def1,chance1,score1,team2,str2,agi2,def2,chance2,score2)
+    $queryins = "INSERT INTO huidig (gameID ,team1 , str1, agi1,def1,chance1,score1,team2,str2,agi2,def2,chance2,score2,round)
      VALUES ($game ,'".$battle->team1."','".$battle->strength1 ."','".$battle->agility1."','".$battle->defense1 ."','".$battle->chance1."'
        ,0,'".$battle->team2."','".$battle->strength2 ."','".$battle->agility2."','".$battle->defense2 ."','".$battle->chance2."'
-         ,0)";
+         ,0,1)";
     if ($this->mysqli->query($queryins) === TRUE) {
     } else {
       return "failed";
