@@ -17,19 +17,40 @@
   </head>
 
   <body>
-<div class="topnav">
-  <a href="../index.php">Home</a>
-  <!-- Controle op user Role -->
-    <?php if ($Role == 0 || $Role == 1) { ?>
-  <a href="Ranking.php" >Ranking</a>
-    <?php } if ($Role == 1) { ?>
-  <a href="Admin/dashboard.php" >DashBoard</a>
-  <?php }?>
-  <div class="topnav-right">
-    <a class="active" href="register.php">SignUp</a>
-    <a href="login.php">SignIn</a>
-  </div>
-</div><br><br>
+    <nav class="navbar navbar-expand-md navbar-dark bg-primary" style="" >
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="#">
+        <span class="menu-collapsed">Poulle systeem</span>
+      </a>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="../index.php">Home<span class="sr-only">(current)</span></a>
+          </li>
+          <?php if ($Role == 0 || $Role == 1) { ?>
+          <li class="nav-item active">
+            <a class="nav-link" href="Ranking.php">Ranking<span class="sr-only">(current)</span></a>
+          </li>
+          <?php } if ($Role == 1) { ?>
+          <li>
+            <a class="nav-link" href="Admin/dashboard.php">DashBoard<span class="sr-only">(current)</span></a>
+          </li>
+          <?php }?>
+          <?php if ($Role == -1){?>
+          <li>
+            <a class="nav-link" class="active" href="register.php">SignUp<span class="sr-only">(current)</span></a>
+          </li>
+          <li>
+            <a class="nav-link" href="login.php">SignIn<span class="sr-only">(current)</span></a>
+          </li>
+        <?php  }else{ ?>
+          <a class="nav-link" href="logout.php">Logout<span class="sr-only">(current)</span></a>
+        <?php } ?>
+        </ul>
+      </div>
+    </nav><br>
 
 <form id="registerform" class="reg_loginform" method="post">
   <div class="logintext">

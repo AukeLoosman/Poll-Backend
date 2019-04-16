@@ -18,16 +18,14 @@ $(document).ready(function(){
     });
     return false;
     });
-});
 
 });
-
+var myVar;
 $(document).on("click","#startPoulle",function(){
-  myTimer();
+  var myVar = setInterval(myTimer, 6000);
 });
 
 var timer11=0;
-
 function myTimer() {
 timer11++;
 $.ajax({
@@ -73,8 +71,6 @@ clearInterval(myVar);
 }
 }
 
-var myVar = setInterval(myTimer, 6000);
-
     $(document).on("click","#newPoulle",function(){
       $.ajax({
         type: 'get',
@@ -88,96 +84,6 @@ var myVar = setInterval(myTimer, 6000);
       });
       return false;
     });
-
-
-// initieren van de timer var
-var timer11=0;
-var myvar;
-// function myTimer() => null
-// Elke 6 seconden in de volgende fase
-function myTimer() {
-
-
-  // per "tick" +1 op de timer
-  timer11++;
-
-  // testen van timer variable
-  console.log(timer11);
-
-
-  // bij elke tick voer deze request uit
-  $.ajax({
-    type: 'get',
-    url: 'ajaxdoables/ajaxpoulle.php',
-    dataType: 'json',
-    succes: function(data){
-      if (data != null){
-      document.getElementById("tijdelijk").innerHTML = data[0];
-      }
-    }
-  });
-
-  // dit is ronde 2, wedstrijden eindigen per 3 dus altijd een winnaar
-  if (timer11 == 3) {
-    $.ajax({
-      type:'get',
-      url: 'ajaxdoables/start.php',
-      dataType: 'json',
-      succes: function(data){
-        if (data != null){
-        }
-      }
-    });
-  }
-
-  // dit is ronde 3, de winnaars van ronde 2 same as 2
-  if (timer11 == 6) {
-    $.ajax({
-      type:'get',
-      url: 'ajaxdoables/start2.php',
-      dataType: 'json',
-      succes: function(data){
-        if (data != null){
-        }
-      }
-    });
-  }
-  // dit is ronde 4, dit is de uitkomst van de finale
-  if (timer11 == 9) {
-
-
-    // resetten van de timer variabele
-    timer11 = 0;
-
-    // Interval stop zetten
-    clearInterval(myvar);
-  }
-}
-
-
-
-$(document).on("click","#startpoulle",function(){
-  var myvar = setInterval(myTimer, 1000);
-});
-
-
-
-
-
-    $(document).on("click","#newPoulle",function(){
-      $.ajax({
-        type: 'get',
-        url: 'ajaxdoables/ajaxstartpoulle.php',
-        dataType: 'json',
-        succes: function(data){
-          if (data != null){
-          document.getElementById("tijdelijk").innerHTML = data[0];
-        }
-        }
-      });
-      return false;
-    });
->>>>>>> sdaeswd
 
 $(document).on("keyup","#livesearchuser",function(){
   let element = $("#livesearchuser");
